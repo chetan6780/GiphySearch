@@ -1,26 +1,29 @@
 // 1. Grab the input -----------------------------------------------------------------
-document.querySelector(".js-go").addEventListener('click', () => {
-    var input = document.querySelector("input").value;
-    input = input.replaceAll(" ", "+");
-    // console.log(input);
-    dataAPI(input);
-    // pushToDOM(input);
-});
 
-// when user press Enter object will be passes to dataAPI function which get all data
-document.querySelector(".js-userinput").addEventListener('keyup', (e) => {
-    var input = document.querySelector("input").value;
+var gobtn = document.querySelector(".js-go");
+var inpBox = document.querySelector(".js-userinput");
+
+// if user press Enter object 
+inpBox.addEventListener('keyup', (e) => {
     if (e.which === 13) {
-        input = input.replaceAll(" ", "+");
-        // console.log(input);
-        dataAPI(input);
-        // pushToDOM(input);
+        search();
     }
 });
 
+// if user press find button 
+gobtn.addEventListener('click', search);
+
+function search() {
+    var input = document.querySelector("input").value;
+    input = input.replaceAll(" ", "+");
+    dataAPI(input);
+}
+
 // 2. Get data from API --------------------------------------------------------------
 function dataAPI(str) {
-    var url = "https://api.giphy.com/v1/gifs/search?q=\"" + str + "\"&api_key=dc6zaTOxFJmzC";
+    var apikey = "FOB6MagSfiBwIFULSr0pA9y7o8A7ThLF"
+
+    var url = "https://api.giphy.com/v1/gifs/search?api_key=" + apikey + "&q=" + str + "&limit=10";
 
     // AJAX Request
     var GiphyAJAXCall = new XMLHttpRequest();
@@ -36,29 +39,33 @@ function dataAPI(str) {
 // 3. show the GIFs ------------------------------------------------------------------
 
 function pushToDOM(input) {
-    // console.log(input);
     var response = JSON.parse(input);
     var imageUrls = response.data;
     var container = document.querySelector(".js-container");
 
-    // imageUrls.forEach((image) => {
-    //     var src = image.images.fixed_height.url;
-    //     container.innerHTML += "<img src=\"" + src + "\" class=\"container-image\">";
-    // });
+    clear(container);
 
-    for (let i = 0; i < 10; i++) {
-        var src = imageUrls[i].images.fixed_height.url;
+    imageUrls.forEach((image) => {
+        var src = image.images.fixed_height.url;
         container.innerHTML += "<img src=\"" + src + "\" class=\"container-image\">";
-    }
+    });
+}
+
+function clear(item) {
+    item.innerHTML = "";
 }
 
 // END -----------------------------------------------------------------------------
+
 /*
 my api key:
 var url = "https://api.giphy.com/v1/gifs/search?q=funny+cat&api_key=FOB6MagSfiBwIFULSr0pA9y7o8A7ThLF";
 
 for the TV
 using the current GIPHY Api:
+
+var apikey = "dc6zaTOxFJmzC"
+
 https://api.giphy.com/v1/gifs/search?q=funny+cat&api_key=dc6zaTOxFJmzC
 
 Or by using this special GIF API:

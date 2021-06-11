@@ -1,21 +1,29 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
 	<meta content="utf-8" http-equiv="encoding">
+	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Giphy Search Engine</title>
 	<link rel="stylesheet" href="css/main.css">
 </head>
 
 <body>
 	<div class="container container-padding50">
-		<input type="text" class="js-userinput container-textinput" />
-		<button class="js-go container-button">Go!</button>
+
+		<input type="text" class="js-userinput container-textinput" value="Search new GIFs" />
+		<button class="js-go container-button">Find</button>
+	</div>
+	<div class="info">
+		Top 10 GIFs
 	</div>
 
 	<div class="container container-padding50 js-container"></div>
 
+	<footer>
+		Powered by <a href="https://giphy.com/">GIPHY</a>
+	</footer>
 	<script src="js/main.js"></script>
 </body>
 
