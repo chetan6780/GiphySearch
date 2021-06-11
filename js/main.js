@@ -23,7 +23,7 @@ function search() {
 function dataAPI(str) {
     var apikey = "FOB6MagSfiBwIFULSr0pA9y7o8A7ThLF"
 
-    var url = "https://api.giphy.com/v1/gifs/search?api_key=" + apikey + "&q=" + str + "&limit=10";
+    var url = "https://api.giphy.com/v1/gifs/search?api_key=" + apikey + "&q=" + str + "&limit=25";
 
     // AJAX Request
     var GiphyAJAXCall = new XMLHttpRequest();
