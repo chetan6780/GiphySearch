@@ -41,10 +41,15 @@ function pushToDOM(input) {
     var imageUrls = response.data;
     var container = document.querySelector(".js-container");
 
-    imageUrls.forEach((image) => {
-        var src = image.images.fixed_height.url;
+    // imageUrls.forEach((image) => {
+    //     var src = image.images.fixed_height.url;
+    //     container.innerHTML += "<img src=\"" + src + "\" class=\"container-image\">";
+    // });
+
+    for (let i = 0; i < 10; i++) {
+        var src = imageUrls[i].images.fixed_height.url;
         container.innerHTML += "<img src=\"" + src + "\" class=\"container-image\">";
-    });
+    }
 }
 
 // END -----------------------------------------------------------------------------
