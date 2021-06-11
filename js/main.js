@@ -20,7 +20,7 @@ document.querySelector(".js-userinput").addEventListener('keyup', (e) => {
 
 // 2. Get data from API --------------------------------------------------------------
 function dataAPI(str) {
-    var url = "http://api.giphy.com/v1/gifs/search?q=\"" + str + "\"&api_key=dc6zaTOxFJmzC";
+    var url = "https://api.giphy.com/v1/gifs/search?q=\"" + str + "\"&api_key=dc6zaTOxFJmzC";
 
     // AJAX Request
     var GiphyAJAXCall = new XMLHttpRequest();
@@ -55,11 +55,11 @@ function pushToDOM(input) {
 // END -----------------------------------------------------------------------------
 /*
 my api key:
-var url = "http://api.giphy.com/v1/gifs/search?q=funny+cat&api_key=FOB6MagSfiBwIFULSr0pA9y7o8A7ThLF";
+var url = "https://api.giphy.com/v1/gifs/search?q=funny+cat&api_key=FOB6MagSfiBwIFULSr0pA9y7o8A7ThLF";
 
 for the TV
 using the current GIPHY Api:
-http://api.giphy.com/v1/gifs/search?q=funny+cat&api_key=dc6zaTOxFJmzC
+https://api.giphy.com/v1/gifs/search?q=funny+cat&api_key=dc6zaTOxFJmzC
 
 Or by using this special GIF API:
 tv.giphy.com/v1/gifs/tv?api_key=CW27AW0nlp5u0&tag=giphytv
